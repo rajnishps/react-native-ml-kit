@@ -1,17 +1,34 @@
-# React Native ML Kit
+# @react-native-ml-kit/barcode-scanning
 
-React Native On-Device Machine Learning w/ Google ML Kit
+React Native On-Device Barcode Scanning w/ Google ML Kit
 
-## Supported Modules
+## Getting started
 
-| Module                                     | Android | iOS |
-| ------------------------------------------ | :-----: | :-: |
-| [Image Labeling](./image-labeling)         |   ✅    | ✅  |
-| [Identify Languages](./identify-languages) |   ✅    | ✅  |
-| [Face Detection](./face-detection)         |   ✅    | ✅  |
-| [Text Recognition](./text-recognition)     |   ✅    | ✅  |
-| [Barcode Scanning](./barcode-scanning)     |   ✅    | ✅  |
-| [Translate Text](./translate-text)         |   ✅    | ❌  |
-| Object Detection and Tracking              |   ❌    | ❌  |
-| Digital Ink Recognition                    |   ❌    | ❌  |
-| Smart Replies                              |   ❌    | ❌  |
+`npm install @react-native-ml-kit/barcode-scanning --save`
+
+### Linking
+
+#### React Native > 0.59
+
+[CLI autolink feature](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) links the module while building the app.
+
+#### React Native <= 0.59
+
+`react-native link @react-native-ml-kit/barcode-scanning`
+
+### Installing Pods
+
+On iOS, use CocoaPods to add the native RNMLKitBarcodeScanning to your project:
+
+`npx pod-install`
+
+## Usage
+
+```javascript
+import BarcodeScanning from '@react-native-ml-kit/barcode-scanning';
+
+const barcodes = await BarcodeScanning.scan(imageURL);
+for (let barcode of barcodes) {
+  console.log(barcode.value, barcode.format);
+}
+```
